@@ -20,6 +20,8 @@ routes.post("/deliverman/", delivermantController.handle)
 routes.post("/deliverman/auth/", authDelivermanController.handle)
 
 routes.post("/deliveries/", IsAuthentication,  deliveryController.handle)
+routes.put("/deliveries/:id", IsAuthentication,  delivermantController.update)
+routes.get("/deliveries/available", IsAuthentication,  delivermantController.available)
 
 
 export {routes}
