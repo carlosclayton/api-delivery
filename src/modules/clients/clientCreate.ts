@@ -15,13 +15,13 @@ export class ClientCreate {
         }
 
         const hasPassword = await hash(password, 10)
-        const client = await prisma.clients.create({
+       return await prisma.clients.create({
             data: {
                 username,
                 password: hasPassword
             }
         })
-        return client;
+
     }
 
 }

@@ -5,7 +5,8 @@ import {DeliveryCreate} from "../modules/deliveries/deliveryCreate";
 
 export class DeliveryController{
     async handle(request: Request, response: Response){
-        const {client_id, item_name} = request.body;
+        const { item_name} = request.body;
+        const { client_id } = request;
 
         const delivery = new DeliveryCreate();
         const result = await delivery.execute({

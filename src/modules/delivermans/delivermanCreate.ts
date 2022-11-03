@@ -3,7 +3,7 @@ import {hash} from "bcrypt";
 
 export class DelivermanCreate {
 
-    async execute({username, password}: IDeliverman){
+    async execute({username, password}: IDeliverman) {
         const result = await prisma.deliverman.findFirst({
             where: {
                 username
@@ -15,13 +15,13 @@ export class DelivermanCreate {
         }
 
         const hasPassword = await hash(password, 10)
-        const deliverman = await prisma.deliverman.create({
+        return await prisma.deliverman.create({
             data: {
                 username,
                 password: hasPassword
             }
         })
-        return deliverman;
+
     }
 
 }
