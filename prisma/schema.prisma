@@ -29,14 +29,14 @@ model Clients {
 }
 
 model Deliveries {
-  id            String     @id @default(uuid())
-  client        Clients    @relation(fields: [client_id], references: [id])
+  id            String      @id @default(uuid())
+  client        Clients     @relation(fields: [client_id], references: [id])
   client_id     String
-  deliverman    Deliverman @relation(fields: [deliverman_id], references: [id])
-  deliverman_id String
+  deliverman    Deliverman? @relation(fields: [deliverman_id], references: [id])
+  deliverman_id String?
   item_name     String
-  created_at    DateTime   @default(now())
-  end_at        DateTime   @default(now())
+  created_at    DateTime    @default(now())
+  end_at        DateTime?   @default(now())
 
   @@map("deliveries")
 }
