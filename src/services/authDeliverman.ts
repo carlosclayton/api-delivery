@@ -2,9 +2,9 @@ import {prisma} from "../database/prismaClient";
 import {compare} from "bcrypt";
 import {sign} from "jsonwebtoken";
 
-export class Auth{
-    async execute({username, password}: IClient){
-        const client = await prisma.clients.findFirst({
+export class AuthDeliverman {
+    async execute({username, password}: IDeliverman){
+        const client = await prisma.deliverman.findFirst({
             where: {
                 username
             }

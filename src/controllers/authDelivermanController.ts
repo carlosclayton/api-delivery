@@ -1,12 +1,13 @@
 import {Request, Response} from "express";
-import {Auth} from "../services/auth";
+import {AuthClient} from "../services/authClient";
+import {AuthDeliverman} from "../services/authDeliverman";
 
 
-export class AuthController{
+export class AuthDelivermanController{
     async handle(request: Request, response: Response){
         const {username, password} = request.body;
 
-        const auth  = new Auth();
+        const auth  = new AuthDeliverman();
         const result = await auth.execute({
             username,
             password
