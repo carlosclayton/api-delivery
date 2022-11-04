@@ -14,10 +14,12 @@ const authDelivermanController = new AuthDelivermanController();
 const deliveryController = new DeliveryController();
 
 routes.post("/clients/", clientController.handle)
+routes.get("/clients/deliveries", IsAuthentication, clientController.deliveries)
 routes.post("/clients/auth/", authClientController.handle)
 
 routes.post("/deliverman/", delivermantController.handle)
 routes.post("/deliverman/auth/", authDelivermanController.handle)
+routes.get("/deliverman/deliveries", IsAuthentication, delivermantController.deliveries)
 
 routes.post("/deliveries/", IsAuthentication,  deliveryController.handle)
 routes.put("/deliveries/:id", IsAuthentication,  delivermantController.update)
