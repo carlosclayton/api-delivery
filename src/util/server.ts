@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import 'express-async-errors';
 import {routes} from "../routes";
 import {NextFunction, Request, request, Response, response} from "express";
