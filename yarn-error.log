@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\viuso\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/prisma
+  C:\Program Files\nodejs\node.exe C:\Users\viuso\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/multer -D
 
 PATH: 
   C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\viuso\AppData\Local\Microsoft\WindowsApps;C:\Users\viuso\AppData\Roaming\npm;C:\Users\viuso\PhpstormProjects\api-delivery\node_modules\.bin
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fprisma: Not found
-      at params.callback [as _callback] (C:\Users\viuso\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
-      at self.callback (C:\Users\viuso\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
-      at Request.emit (node:events:513:28)
-      at Request.<anonymous> (C:\Users\viuso\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
-      at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (C:\Users\viuso\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
-      at Object.onceWrapper (node:events:627:28)
-      at IncomingMessage.emit (node:events:525:35)
-      at endReadableNT (node:internal/streams/readable:1359:12)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\viuso\PhpstormProjects\api-delivery\node_modules\bcrypt\lib\binding\napi-v3\bcrypt_lib.node'
 
 npm manifest: 
   {
@@ -43,7 +33,9 @@ npm manifest:
       "@prisma/client": "^4.5.0",
       "express": "^4.18.2",
       "express-async-errors": "^3.1.1",
-      "jsonwebtoken": "^8.5.1"
+      "jsonwebtoken": "^8.5.1",
+      "reflect-metadata": "^0.1.13",
+      "typedi": "^0.10.0"
     }
   }
 
@@ -1027,6 +1019,11 @@ Lockfile:
     dependencies:
       "picomatch" "^2.2.1"
   
+  "reflect-metadata@^0.1.13":
+    "integrity" "sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg=="
+    "resolved" "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.1.13.tgz"
+    "version" "0.1.13"
+  
   "resolve@^1.0.0":
     "integrity" "sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw=="
     "resolved" "https://registry.npmjs.org/resolve/-/resolve-1.22.1.tgz"
@@ -1272,6 +1269,11 @@ Lockfile:
     dependencies:
       "media-typer" "0.3.0"
       "mime-types" "~2.1.24"
+  
+  "typedi@^0.10.0":
+    "integrity" "sha512-v3UJF8xm68BBj6AF4oQML3ikrfK2c9EmZUyLOfShpJuItAqVBHWP/KtpGinkSsIiP6EZyyb6Z3NXyW9dgS9X1w=="
+    "resolved" "https://registry.npmjs.org/typedi/-/typedi-0.10.0.tgz"
+    "version" "0.10.0"
   
   "typescript@*", "typescript@^4.8.4", "typescript@>=2.7":
     "integrity" "sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ=="
