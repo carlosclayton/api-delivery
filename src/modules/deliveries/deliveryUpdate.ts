@@ -1,10 +1,9 @@
 import {prisma} from "../../database/prismaClient";
-import {IDelivery} from "../../interfaces/IDelivery";
-import {request} from "express";
+import {Deliveries} from "../../models/Deliveries";
 
 export class DeliveryUpdate {
 
-    async execute({id, deliverman_id}: IDelivery){
+    async execute({id, deliverman_id}: Deliveries){
         console.log(deliverman_id)
         return  await prisma.deliveries.update({
             where: {

@@ -1,9 +1,8 @@
 import {prisma} from "../../database/prismaClient";
-import {hash} from "bcrypt";
-import {IDelivery} from "../../interfaces/IDelivery";
+import {Deliveries} from "../../models/Deliveries";
 
 export class ClientDeliveries {
-    async execute({client_id}: IDelivery){
+    async execute({client_id}: Deliveries){
         return await prisma.clients.findFirst({
             where: {
                 id: client_id

@@ -1,9 +1,11 @@
 import {prisma} from "../../database/prismaClient";
 import {hash} from "bcrypt";
+import {Deliveries} from "../../models/Deliveries";
+import {Deliverman} from "../../models/Deliverman";
 
 export class DelivermanCreate {
 
-    async execute({username, password}: IDeliverman) {
+    async execute({username, password}: Deliverman) {
         const result = await prisma.deliverman.findFirst({
             where: {
                 username
