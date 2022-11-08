@@ -1,0 +1,80 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Deliveries",
+    "description": "API REST Deliveries",
+    "version": "0.0.1",
+    "contact": {
+      "email": "carlos.clayton@gmail.com"
+    }
+  },
+  "paths": {
+      "/clients": {
+        "post": {
+          "tags": ["Client"],
+          "summary": "Create Client",
+          "description": "Create new client",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "username": "User name",
+                    "password": "Password"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Error"
+            }
+          }
+        },
+        "get": {
+          "tags": ["Client"],
+          "summary": "List deliveries",
+          "description": "List all deliveries",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "deliveries": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }
+}

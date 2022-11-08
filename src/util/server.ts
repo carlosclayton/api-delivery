@@ -2,10 +2,13 @@ import 'reflect-metadata';
 import 'express-async-errors';
 import {routes} from "../routes";
 import {NextFunction, Request, request, Response, response} from "express";
+import swaggerUI from "swagger-ui-express";
+import swaggerFile from "../swagger.json"
 
 const express = require("express");
 const app = express();
 app.use(express.json())
+app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerFile))
 app.use(routes)
 
 app.use((
