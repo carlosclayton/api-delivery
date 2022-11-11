@@ -3,11 +3,13 @@ import {Clients} from "../models/Clients";
 import { Service } from "typedi";
 import {Deliveries} from "../models/Deliveries";
 import {Request} from "express";
+import {inject, injectable} from "tsyringe";
 
-@Service()
+@injectable()
 export class ClientService {
-
-    constructor(private readonly clientRepository: IClientsRepository) {
+    constructor(
+        @inject("ClientsRepository") public clientRepository: IClientsRepository
+    ) {
     }
 
     create({username, password}: Clients) {
@@ -16,8 +18,4 @@ export class ClientService {
     deliveries(client_id: string) {
         return this.clientRepository.deliveries(client_id)
     }
-
-
-
-
 }

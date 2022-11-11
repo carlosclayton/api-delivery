@@ -2,10 +2,10 @@ import {IClientsRepository} from "./IClientsRepository";
 import {Clients} from "../models/Clients";
 import {prisma} from "../database/prismaClient";
 import {hash} from "bcrypt";
-import { Service } from "typedi";
+import {injectable} from "tsyringe";
 
 
-@Service()
+@injectable()
 export class ClientsRepository implements IClientsRepository{
     async create({username, password}: Clients) {
         const result = await prisma.clients.findFirst({

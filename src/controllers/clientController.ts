@@ -1,4 +1,5 @@
 import {Request, Response} from "express";
+import {container} from "tsyringe";
 import {clientService} from "./index";
 
 export class ClientController{
