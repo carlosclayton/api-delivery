@@ -75,6 +75,60 @@
             }
           }
         }
+      },
+    "/users": {
+
+      "post": {
+        "tags": ["User"],
+        "summary": "Create user",
+        "description": "Create new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "driver_licence": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Name",
+                  "email": "E-mail",
+                  "username": "Username",
+                  "password": "Password",
+                  "driver_licence": "Driver licence",
+                  "role": "ADMIN|USER"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
       }
+
+    }
   }
 }

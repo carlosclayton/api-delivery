@@ -1,8 +1,5 @@
 import {IClientsRepository} from "../repositories/IClientsRepository";
 import {Clients} from "../models/Clients";
-import { Service } from "typedi";
-import {Deliveries} from "../models/Deliveries";
-import {Request} from "express";
 import {inject, injectable} from "tsyringe";
 
 @injectable()

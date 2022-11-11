@@ -1,6 +1,11 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+enum Role {
+  USER
+  ADMIN
+}
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,19 +16,27 @@ datasource db {
 }
 
 model Deliverman {
-  id         String       @id @default(uuid())
-  username   String       @unique
-  password   String
-  deliveries Deliveries[]
+  id             String       @id @default(uuid())
+  username       String       @unique
+  password       String
+  email          String
+  driver_licence String
+  role           Role         @default(USER)
+  deliveries     Deliveries[]
+  created_at     DateTime     @default(now())
 
   @@map("deliverman")
 }
 
 model Clients {
-  id         String       @id @default(uuid())
-  username   String       @unique
-  password   String
-  deliveries Deliveries[]
+  id             String       @id @default(uuid())
+  username       String       @unique
+  password       String
+  email          String
+  driver_licence String
+  role           Role         @default(USER)
+  deliveries     Deliveries[]
+  created_at     DateTime     @default(now())
 
   @@map("clients")
 }
@@ -34,9 +47,22 @@ model Deliveries {
   client_id      String
   deliverman     Deliverman? @relation(fields: [deliverman_id], references: [id])
   deliverman_id  String?
-  item_names     String
+  item_name      String
   created_at     DateTime    @default(now())
   deliveryman_at DateTime?
 
   @@map("deliveries")
+}
+
+model Users {
+  id             String   @id @default(uuid())
+  name           String
+  username       String   @unique
+  password       String
+  email          String
+  driver_licence String
+  role           Role     @default(USER)
+  created_at     DateTime @default(now())
+
+  @@map("users")
 }

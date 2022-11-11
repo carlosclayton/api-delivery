@@ -2,9 +2,9 @@ import {IClientsRepository} from "./IClientsRepository";
 import {Clients} from "../models/Clients";
 import {prisma} from "../database/prismaClient";
 import {hash} from "bcrypt";
-import {injectable} from "tsyringe";
+import {injectable, singleton} from "tsyringe";
 
-
+@singleton()
 @injectable()
 export class ClientsRepository implements IClientsRepository{
     async create({username, password}: Clients) {
